@@ -17,6 +17,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 
+import vuetify from '@/plugins/vuetify'
+
 // LightBootstrap plugin
 import LightBootstrap from './light-bootstrap-main'
 
@@ -46,6 +48,7 @@ const router = new VueRouter({
 
 /* eslint-disable no-new */
 new Vue({
+  vuetify,
   el: '#app',
   render: h => h(App),
   router,

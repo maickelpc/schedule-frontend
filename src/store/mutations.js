@@ -3,7 +3,6 @@ export default {
     state.users = users
   },
   'CHANGE_USER_SCHEDULE' (state, userSchedule) {
-    console.log(userSchedule)
     state.userSchedule = userSchedule
   },
   'CHANGE_SCHEDULE' (state, schedule) {

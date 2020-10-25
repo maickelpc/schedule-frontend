@@ -21,8 +21,8 @@ export class Api {
     if (typeof (object) === 'object') {
       object = {...object}
     }
-
-    let queryString = Object.keys(object).forEach((key) => {
+    let queryString = ''
+    Object.keys(object).forEach((key) => {
       if (object[key] !== null && object[key] !== undefined && object[key] !== '') {
         if (queryString.length > 0) {
           queryString += '&'
