@@ -1,11 +1,14 @@
 export class Api {
   constructor () {
     this.API_URL = localStorage.getItem('api-url') || process.env.ROOT_API || ''
-    let token = localStorage.getItem('user-token') || false
     let headers = { 'Content-Type': 'application/json' }
-    if (token) {
-      headers = {...headers, 'Authorization': `bearer ${token}`}
+
+    let user = localStorage.getItem('loggedinUser')
+    if (user) {
+      user = JSON.parse(user)
+      headers = {...headers, 'Authorization': `bearer ${user.accessToken}`}
     }
+
     this.HEADERS = { ...headers }
   }
 

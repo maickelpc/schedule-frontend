@@ -4,11 +4,16 @@ import NotFound from '../pages/NotFoundPage.vue'
 
 // Admin pages
 import UserSchedule from '../pages/UserSchedule.vue'
+import LoginPage from '../pages/LoginPage.vue'
 
 const routes = [
   {
     path: '/',
     component: Dashboard
+  },
+  {
+    path: '/login',
+    component: LoginPage
   },
   {
     path: '/:id',

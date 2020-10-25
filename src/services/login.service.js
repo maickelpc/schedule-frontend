@@ -1,6 +1,8 @@
-import { Api } from "./Api";
-import Axios from "axios";
+import { Api } from './Api'
+import Axios from 'axios'
 
-export class LoginService extends Api {
-
+export default class LoginService extends Api {
+  login (credentials) {
+    return Axios.post(`${this.API_URL}/auth/login`, credentials, { headers: this.HEADERS })
+  }
 }

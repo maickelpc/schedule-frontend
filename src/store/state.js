@@ -1,6 +1,6 @@
 export default {
   user: null,
-  token: null,
+  loggedinUser: null,
   users: null,
   userSchedule: null,
   schedule: null

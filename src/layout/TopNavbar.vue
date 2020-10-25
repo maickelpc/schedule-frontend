@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Agenda</a>
+      <a class="navbar-brand" href="#">Dashboard</a>
       <button type="button"
               class="navbar-toggler navbar-toggler-right"
               :class="{toggled: $sidebar.showSidebar}"
@@ -55,9 +55,12 @@
             <a class="dropdown-item" href="#">Separated link</a>
           </base-dropdown> -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <router-link to="/login" class="nav-link" v-if="!user">
               Acessar
-            </a>
+            </router-link>
+            <router-link to="/" class="nav-link" v-else>
+              {{user.name}}
+            </router-link>
           </li>
         </ul>
       </div>
@@ -70,6 +73,9 @@ export default {
     routeName () {
       const {name} = this.$route
       return this.capitalizeFirstLetter(name)
+    },
+    user () {
+      return this.$store.state.loggedinUser
     }
   },
   data () {

@@ -48,6 +48,11 @@ export default {
     }
   },
   mounted () {
+    let user = localStorage.getItem('loggedinUser')
+    if (user) {
+      user = JSON.parse(user)
+      this.$store.commit('LOGGEDIN_USER', user.accessToken)
+    }
     localStorage.setItem('api-url', process.env.ROOT_API)
     this.getAllUsers()
   }
