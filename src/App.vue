@@ -19,7 +19,9 @@
 import TopNavbar from './layout/TopNavbar.vue'
 import Sidebar from './layout/Sidebar.vue'
 import ContentFooter from './layout/ContentFooter.vue'
+import UserService from './services/users.service'
 
+const userService = new UserService()
 export default {
   components: {
     TopNavbar,
@@ -31,7 +33,23 @@ export default {
       if (this.$sidebar.showSidebar) {
         this.$sidebar.displaySidebar(false)
       }
+    },
+    getAllUsers () {
+      userService.getAll().then(
+        response => this.$store.commit('CHANGE_USERS', response.data.data)
+      ).catch(
+        response => {
+          console.log('Error get all users: ', response.error)
+          setTimeout(() => {
+            this.getAllUsers()
+          }, 1000)
+        }
+      )
     }
+  },
+  mounted () {
+    localStorage.setItem('api-url', process.env.ROOT_API)
+    this.getAllUsers()
   }
 }
 </script>
