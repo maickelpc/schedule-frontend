@@ -1,4 +1,4 @@
-import DashboardLayout from '../layout/DashboardLayout.vue'
+import Dashboard from '../pages/Dashboard.vue'
 // GeneralViews
 import NotFound from '../pages/NotFoundPage.vue'
 
@@ -8,10 +8,10 @@ import UserSchedule from '../pages/UserSchedule.vue'
 const routes = [
   {
     path: '/',
-    component: DashboardLayout
+    component: Dashboard
   },
   {
-    path: '/:user',
+    path: '/:id',
     component: UserSchedule
   },
   { path: '*', component: NotFound }

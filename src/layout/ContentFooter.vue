@@ -4,7 +4,7 @@
       <nav>
         <ul class="footer-menu">
           <li>
-            <router-link :to="{path:'/admin'}">Dashboard</router-link>
+            <router-link :to="{path:'/'}">Home</router-link>
           </li>
         </ul>
       </nav>
@@ -22,5 +22,9 @@ export default {}
 
 </script>
 <style>
-
+footer {
+  position:absolute;
+  bottom:0;
+  width:100%;
+}
 </style>

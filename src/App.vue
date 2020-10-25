@@ -1,12 +1,39 @@
 <template>
-  <div :class="{'nav-open': $sidebar.showSidebar}">
-    <notifications></notifications>
-    <router-view></router-view>
+  <div>
+    <div class="wrapper">
+      <sidebar></sidebar>
+      <div class="main-panel">
+        <top-navbar></top-navbar>
+        <transition name="fade" mode="out-in">
+           <div class="container-fluid">
+            <router-view></router-view>
+           </div>
+        </transition>
+        <content-footer></content-footer>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+import TopNavbar from './layout/TopNavbar.vue'
+import Sidebar from './layout/Sidebar.vue'
+import ContentFooter from './layout/ContentFooter.vue'
+
+export default {
+  components: {
+    TopNavbar,
+    Sidebar,
+    ContentFooter
+  },
+  methods: {
+    toggleSidebar () {
+      if (this.$sidebar.showSidebar) {
+        this.$sidebar.displaySidebar(false)
+      }
+    }
+  }
+}
 </script>
 <style lang="scss">
   .vue-notifyjs.notifications{
@@ -34,5 +61,18 @@ export default {}
       opacity: 0;
       transform: scale(1.2, 0.7);
     }
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity .5s
+  }
+
+  .fade-enter,
+  .fade-leave-to
+    /* .fade-leave-active in <2.1.8 */
+
+  {
+    opacity: 0
   }
 </style>
