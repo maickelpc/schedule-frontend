@@ -3,10 +3,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <card class="card-plain">
-              <h4 class="card-title">Table on Plain Background</h4>
-              <p class="card-category">Here is a subtitle for this table</p>
-          </card>
+          <div class="card-plain" v-if="userSchedule">
+              <h4 class="card-title">Agenda {{userSchedule.name }}</h4>
+              <hr>
+
+          </div>
         </div>
 
       </div>
@@ -17,7 +18,15 @@
 export default {
   data () {
     return {
-      data: ''
+      data: null
+    }
+  },
+  computed: {
+    userSchedule () {
+      return this.$store.state.userSchedule
+    },
+    schedule () {
+      return this.$store.state.schedule
     }
   }
 }

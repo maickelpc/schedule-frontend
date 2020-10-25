@@ -1,7 +1,7 @@
 <template>
   <side-bar :title="title">
     <!-- <mobile-menu slot="content"></mobile-menu> -->
-    <sidebar-link :to="'/'+user.id" v-for="user of users" :key="user.id">
+    <sidebar-link :to="'/'+user.id" v-for="user of users" :key="user.id" :item="user" >
       <i class="nc-icon nc-circle-09"></i>
       <p>{{user.name}}</p>
     </sidebar-link>
