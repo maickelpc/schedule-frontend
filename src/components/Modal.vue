@@ -220,7 +220,7 @@ export default {
         start_date: this.showModalDetail.start_date
       }
 
-      userService.createSechedule(1, obj)
+      userService.createSechedule(this.$store.state.userSchedule.id, obj)
         .then(
           response => {
             this.success = 'Requisição registrada com sucesso!'
