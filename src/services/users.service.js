@@ -10,4 +10,8 @@ export default class UserService extends Api {
     let queryString = this.getQueryString(filters)
     return Axios.get(`${this.API_URL}/user/${id}/schedule?${queryString}`, { headers: this.HEADERS })
   }
+
+  createSechedule (id, schedule) {
+    return Axios.post(`${this.API_URL}/user/${id}/schedule`, schedule, { headers: this.HEADERS })
+  }
 }

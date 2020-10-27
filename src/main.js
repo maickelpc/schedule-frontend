@@ -17,6 +17,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 
+import Schedule from 'vue-schedule'
 import vuetify from '@/plugins/vuetify'
 
 // LightBootstrap plugin
@@ -32,7 +33,7 @@ import './registerServiceWorker'
 // plugin setup
 Vue.use(VueRouter)
 Vue.use(LightBootstrap)
-
+Vue.use(Schedule)
 // configure router
 const router = new VueRouter({
   routes, // short for routes: routes
@@ -44,6 +45,18 @@ const router = new VueRouter({
       return { x: 0, y: 0 }
     }
   }
+})
+
+Vue.filter('time', function (value) {
+  if (!value) return ''
+  value = value.format('HH:mm:ss')
+  return value
+})
+
+Vue.filter('datetime', function (value) {
+  if (!value) return ''
+  value = value.format('DD/MM/YYYY HH:mm:ss')
+  return value
 })
 
 /* eslint-disable no-new */
