@@ -230,7 +230,7 @@ export default {
         .catch(
           error => {
             console.log(error, error.response)
-            this.error = error.response.status === 406 ? error.response.errors : ['Erro ao tentar salvar a agenda']
+            this.error = error.response.status === 422 ? error.response.data.errors : ['Erro ao tentar salvar a agenda']
           }
         )
     }
